@@ -16,6 +16,11 @@ public class CartaoCredito {
         this.historicoCompras = new ArrayList<String>();
     }
 
+    public static String adicionarCompra() {
+        String compra = new String();
+        return compra;
+    }
+
     public double getLimiteCredito() {
         return limiteCredito;
     }
@@ -53,9 +58,10 @@ public class CartaoCredito {
         this.saldo -= Double.parseDouble(compra);
     }
 
-    public void consultarFatura() {
+    public Object consultarFatura() {
         double fatura = this.limiteCredito - this.saldo;
         System.out.println("Valor da fatura atual: R$" + fatura);
+        return null;
     }
 
     public void realizarPagamento(double valorPagamento) {
@@ -81,4 +87,3 @@ public class CartaoCredito {
         }
     }
 }
-

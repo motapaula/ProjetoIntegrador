@@ -21,9 +21,9 @@ public class Transferencia extends ContaCorrente {
     }
 
     public void realizarTransferencia() {
-        if (this.saldo < valor) {
+        if (this.getSaldo() < valor) {
             System.out.println("Saldo insuficiente para realizar a transferência!");
-            return;
+
         }
 
         /*numeroConta.debitar(valor);
@@ -37,14 +37,14 @@ public class Transferencia extends ContaCorrente {
     }
 
     public void transferencia(double valor, ContaCorrente contaDestino) {
-        if (valor > (this.saldo + this.limiteTransacoes)) {
+        if (valor > (this.getSaldo() + this.limiteTransacoes)) {
             System.out.println("Saldo insuficiente!");
             return;
         }
-        this.saldo -= valor;
-        contaDestino.saldo += valor;
-        this.extrato.add("Transferência no valor de " + valor + " realizada da conta " + this.numeroConta + " para a conta " + contaDestino.numeroConta);
-        contaDestino.extrato.add("Transferência no valor de " + valor + " recebida da conta " + this.numeroConta);
+        this.setSaldo(this.getSaldo() - valor);
+        contaDestino.setSaldo(contaDestino.getSaldo() + valor);
+        this.getExtrato().add("Transferência no valor de " + valor + " realizada da conta " + this.getNumeroConta() + " para a conta " + contaDestino.getNumeroConta());
+        contaDestino.getExtrato().add("Transferência no valor de " + valor + " recebida da conta " + this.getNumeroConta());
 
     }
     // getters e setters

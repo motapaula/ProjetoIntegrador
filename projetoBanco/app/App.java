@@ -1,28 +1,42 @@
 package app;
 import ProjetoIntegrador.*;
-import java.util.Calendar;
 
 public class App {
     public static void main(String[] args) {
-        //Instancia nova conta
-        ContaCorrente contaCorrente = new ContaCorrente(1245, "João Rodrigues", 10000.00);
+        // Instancia nova conta
+        ContaCorrente contaCorrente = new ContaCorrente(1234, "Joao Silva", 1200.00, 20);
 
-        //Instancia do Cartão de crédito
+        // Instancia do Cartão de crédito e realiza compras
         CartaoCredito cartaoCredito = new CartaoCredito(1000.00, 10000.00, 1212);
-        System.out.println("Seu cartão de crédito tem a fatura no valor de " + cartaoCredito.consultarFatura());
 
-        //Realiza compra com Cartão
-        cartaoCredito.adicionarCompra("Livros");
-        System.out.println("Você comprou um " + cartaoCredito.adicionarCompra());
+        // Realiza compra com Cartão
+        CartaoCredito compra = new CartaoCredito(1000.00, 10000.00, 1212);
+        System.out.println(compra.adicionarCompra());
 
-
-        //Instancia do Emprestimo
+        // Instancia do Emprestimo
         Emprestimo emprestimo = new Emprestimo(5000.00, 12, 1.00);
-        System.out.println("Você tem empréstimo no valor de " + emprestimo.consultarParcelas());
+        emprestimo.consultarParcelas();
 
-        //Instancia do Pagamento
+        // Instancia do Pagamento
         Pagamento pagamento = new Pagamento(500.00, 122023, "Lojas Americanas", "Conta Corrente", 10000.00);
         System.out.println("Você pagou um boleto no valor de " + pagamento.getValorBoleto());
 
+        ContaInvestimentos conta = new ContaInvestimentos(1000, 0.05);
+
+        conta.aplicarValor(500);
+        System.out.println("Saldo atual: " + conta.getSaldo()); // Saída: Saldo atual: 1500.0
+
+        double resgateParcial = conta.resgatarParcial(300);
+        System.out.println("Valor resgatado: " + resgateParcial); // Saída: Valor resgatado: 300.0
+        System.out.println("Saldo atual: " + conta.getSaldo()); // Saída: Saldo atual: 1200.0
+
+        double resgateTotal = conta.resgatarTotal();
+        System.out.println("Valor total resgatado: " + resgateTotal); // Saída: Valor total resgatado: 1200.0
+        System.out.println("Saldo atual: " + conta.getSaldo()); // Saída: Saldo atual: 0.0
+
+        double rendimento = conta.calcularRendimento();
+        System.out.println("Rendimento dos investimentos: " + rendimento); // Saída: Rendimento dos investimentos: 50.0
     }
 }
+
+
