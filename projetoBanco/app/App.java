@@ -1,17 +1,27 @@
 package app;
+
 import ProjetoIntegrador.*;
 
 public class App {
     public static void main(String[] args) {
+        // Instancia conta
+        Conta c1 = new Conta(1);
+        c1.depositar(500);
+        c1.consultarSaldo();
+
+        // Instancia Usuario
+        Usuario u1 = new Usuario("Joao da Silva", "159","789");
+        u1.login(u1, "789");
+
         // Instancia nova conta
         ContaCorrente contaCorrente = new ContaCorrente(1234, "Joao Silva", 1200.00, 20);
 
         // Instancia do Cartão de crédito e realiza compras
-        CartaoCredito cartaoCredito = new CartaoCredito(1000.00, 10000.00, 1212, "LojasAmericanas");
+        CartaoCredito cartaoCredito = new CartaoCredito(1000.00, 10000.00, 1212);
 
         // Realiza compra com Cartão
         CartaoCredito compra = new CartaoCredito(1000.00, 10000.00, 1212);
-        System.out.println(compra.adicionarCompra());
+        //System.out.println(compra.adicionarCompra());
 
         // Instancia do Emprestimo
         Emprestimo emprestimo = new Emprestimo(5000.00, 12, 1.00);
