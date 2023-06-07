@@ -7,7 +7,7 @@ public class App {
         ContaCorrente contaCorrente = new ContaCorrente(1234, "Joao Silva", 1200.00, 20);
 
         // Instancia do Cartão de crédito e realiza compras
-        CartaoCredito cartaoCredito = new CartaoCredito(1000.00, 10000.00, 1212);
+        CartaoCredito cartaoCredito = new CartaoCredito(1000.00, 10000.00, 1212, "LojasAmericanas");
 
         // Realiza compra com Cartão
         CartaoCredito compra = new CartaoCredito(1000.00, 10000.00, 1212);

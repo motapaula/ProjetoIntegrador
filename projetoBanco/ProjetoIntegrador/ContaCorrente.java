@@ -20,9 +20,6 @@ public class ContaCorrente {
     public void setNumeroConta(int numeroConta) {
         NumeroConta = numeroConta;
     }
-
-
-
     public String getNomeTitular() {
         return nomeTitular;
     }

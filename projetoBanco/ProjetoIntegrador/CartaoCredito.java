@@ -8,12 +8,16 @@ public class CartaoCredito {
     private double saldo;
     public int dataVencimento;
     private List<String> historicoCompras;
+    private String compra;
 
     public CartaoCredito(double limiteCredito, double saldo, int dataVencimento) {
         this.limiteCredito = limiteCredito;
         this.saldo = saldo;
         this.dataVencimento = dataVencimento;
         this.historicoCompras = new ArrayList<String>();
+    }
+
+    public CartaoCredito(double limiteCredito, double saldo, int dataVencimento, String compra) {
     }
 
     public static String adicionarCompra() {
@@ -53,9 +57,10 @@ public class CartaoCredito {
         this.historicoCompras = historicoCompras;
     }
 
-    public void adicionarCompra(String compra) {
+    public String adicionarCompra(String compra) {
         this.historicoCompras.add(compra);
         this.saldo -= Double.parseDouble(compra);
+        return compra;
     }
 
     public Object consultarFatura() {
